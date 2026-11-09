@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FRESHDROP – Marken-Streetwear zum fairen Preis</title>
+  <meta name="description" content="Nike, Jordan, Lacoste, Tommy Hilfiger, Stone Island & Polo Ralph Lauren zum guten Preis. Lieferung in 2–4 Werktagen.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topbar">🚚 Lieferung in 2–4 Werktagen · Gratis Versand ab 100 € · 14 Tage Rückgabe</div>
+  <header class="header">
+    <a class="logo" href="#">FRESH<span>DROP</span></a>
+    <input id="search" type="search" placeholder="Suche nach Marke oder Produkt …" aria-label="Suche">
+    <button id="cart-btn" class="cart-btn">🛒 Warenkorb <b id="cart-count">0</b></button>
+  </header>
+
+  <section class="hero">
+    <h1>Marken, die du liebst.<br>Preise, die passen.</h1>
+    <p>Nike · Jordan · Lacoste · Tommy Hilfiger · Stone Island · Polo Ralph Lauren</p>
+    <a class="btn" href="#shop">Jetzt shoppen</a>
+  </section>
+
+  <section class="usps">
+    <div>✅ Original-Ware</div><div>🚚 2–4 Tage Lieferzeit</div><div>↩️ 14 Tage Rückgabe</div><div>🔒 Sichere Zahlung</div>
+  </section>
+
+  <main id="shop" class="shop">
+    <aside class="filters">
+      <h3>Marke</h3><div id="brand-filter"></div>
+      <h3>Kategorie</h3><div id="cat-filter"></div>
+      <h3>Sortieren</h3>
+      <select id="sort">
+        <option value="rel">Empfohlen</option>
+        <option value="asc">Preis aufsteigend</option>
+        <option value="desc">Preis absteigend</option>
+        <option value="sale">Höchster Rabatt</option>
+      </select>
+    </aside>
+    <div>
+      <p id="result-info" class="muted"></p>
+      <div id="grid" class="grid"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> FRESHDROP · Impressum · Datenschutz · AGB · Widerrufsbelehrung · Versand & Zahlung</p>
+    <p class="muted">Demo-Shop. Markennamen gehören den jeweiligen Inhabern und dienen nur der Bezeichnung der Originalware.</p>
+  </footer>
+
+  <!-- Produkt-Dialog -->
+  <dialog id="product-dialog"></dialog>
+
+  <!-- Warenkorb -->
+  <aside id="cart" class="cart" aria-hidden="true">
+    <div class="cart-head"><h2>Warenkorb</h2><button id="cart-close" aria-label="Schließen">✕</button></div>
+    <div id="cart-items"></div>
+    <div class="cart-foot">
+      <div class="row"><span>Zwischensumme</span><span id="subtotal"></span></div>
+      <div class="row"><span>Versand</span><span id="shipping"></span></div>
+      <div class="row total"><span>Gesamt</span><span id="total"></span></div>
+      <button id="checkout-btn" class="btn full">Zur Kasse</button>
+    </div>
+  </aside>
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Checkout -->
+  <dialog id="checkout-dialog">
+    <form id="checkout-form" method="dialog">
+      <h2>Bestellung abschließen</h2>
+      <label>Name<input name="name" required></label>
+      <label>E-Mail<input name="email" type="email" required></label>
+      <label>Straße & Hausnummer<input name="street" required></label>
+      <div class="two"><label>PLZ<input name="zip" required pattern="[0-9]{5}"></label><label>Stadt<input name="city" required></label></div>
+      <label>Zahlung
+        <select name="pay"><option>PayPal</option><option>Kreditkarte</option><option>Klarna</option><option>Vorkasse</option></select>
+      </label>
+      <p class="muted">Voraussichtliche Lieferung: <b id="eta"></b></p>
+      <div class="actions"><button type="button" id="checkout-cancel" class="btn ghost">Abbrechen</button><button class="btn">Kostenpflichtig bestellen</button></div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast"></div>
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
